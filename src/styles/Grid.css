@@ -1,62 +1,73 @@
 /* Main Grid Layout */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-  }
-  
-  /* Card Container */
-  .card {
+}
+
+/* Card Container */
+.card {
     aspect-ratio: 3/4; /* Maintain card proportions */
     perspective: 1000px; /* For 3D flip effect */
     cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.03);
-  }
-  
-  /* Inner card wrapper for flip animation */
-  .card > div {
+    min-height: 120px; /* Much larger minimum height */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Inner card wrapper for flip animation */
+.card > div {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-  }
-  
-  /* Flip when card is selected */
-  .card.flipped > div {
+}
+
+/* Flip when card is selected */
+.card.flipped > div {
     transform: rotateY(180deg);
-  }
-  
-  /* Shared image styles */
-  .card img {
+}
+
+/* Matched cards styling */
+.card.matched {
+    opacity: 0.8;
+    transform: scale(0.95);
+}
+
+.card.matched > div {
+    transform: rotateY(180deg);
+}
+
+/* Shared image styles */
+.card img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensure images fill container */
-    border-radius: 10px;
+    border-radius: 12px;
     backface-visibility: hidden; /* Hide back during flip */
     user-select: none; /* Prevent image dragging */
-  }
-  
-  /* Front image (hidden by default) */
-  .front {
+}
+
+/* Front image (hidden by default) */
+.front {
     transform: rotateY(180deg);
     background: white;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
-  }
-  
-  /* Card back/cover */
-  .cover {
+}
+
+/* Card back/cover */
+.cover {
     background: linear-gradient(135deg, #6e8efb, #a777e3);
     display: flex;
     align-items: center;
@@ -64,10 +75,10 @@
     color: white;
     font-weight: bold;
     border: 3px solid white;
-  }
-  
-  /* Optional: Add shine effect to card back */
-  .cover::after {
+}
+
+/* Optional: Add shine effect to card back */
+.cover::after {
     content: '';
     position: absolute;
     top: -10%;
@@ -81,12 +92,58 @@
       rgba(255, 255, 255, 0) 60%
     );
     transform: rotate(30deg);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
     .card-grid {
-      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-      gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 15px;
+        max-width: 700px;
     }
-  }
+    
+    .card {
+        min-height: 100px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+        max-width: 100%;
+    }
+    
+    .card {
+        min-height: 90px;
+        border-radius: 10px;
+    }
+    
+    .card img {
+        border-radius: 10px;
+    }
+    
+    .front {
+        padding: 10px;
+    }
+    
+    .cover {
+        border: 2px solid white;
+    }
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 320px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .card {
+        min-height: 80px;
+    }
+}
