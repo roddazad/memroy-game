@@ -3,7 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   font-family: 'Arial', sans-serif;
   text-align: center;

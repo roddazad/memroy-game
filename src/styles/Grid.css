@@ -1,0 +1,92 @@
+/* Main Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Card Container */
+  .card {
+    aspect-ratio: 3/4; /* Maintain card proportions */
+    perspective: 1000px; /* For 3D flip effect */
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Inner card wrapper for flip animation */
+  .card > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Flip when card is selected */
+  .card.flipped > div {
+    transform: rotateY(180deg);
+  }
+  
+  /* Shared image styles */
+  .card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fill container */
+    border-radius: 10px;
+    backface-visibility: hidden; /* Hide back during flip */
+    user-select: none; /* Prevent image dragging */
+  }
+  
+  /* Front image (hidden by default) */
+  .front {
+    transform: rotateY(180deg);
+    background: white;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Card back/cover */
+  .cover {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border: 3px solid white;
+  }
+  
+  /* Optional: Add shine effect to card back */
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    transform: rotate(30deg);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 10px;
+    }
+  }

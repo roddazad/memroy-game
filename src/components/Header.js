@@ -1,10 +1,10 @@
 import "../styles/Header.css"
 
-const Header = () => {
+const Header = ({shuffleCards}) => {
     return ( 
         <div className="container">
             <h1>Memory Game</h1>
-            <button className="button"> New Game</button>
+            <button onClick={shuffleCards} className="button"> New Game</button>
         </div>
      );
 }
