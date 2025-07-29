@@ -1,6 +1,6 @@
-import "../styles/Home.css"
+import "../styles/Header.css"
 
-const Home = () => {
+const Header = () => {
     return ( 
         <div className="container">
             <h1>Memory Game</h1>
@@ -9,4 +9,4 @@ const Home = () => {
      );
 }
  
-export default Home;
+export default Header;
