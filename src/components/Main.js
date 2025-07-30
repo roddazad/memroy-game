@@ -63,15 +63,16 @@ const Main = () => {
     useEffect(() => {
         if (matchedPairs === cardImages.length) {
             setGameComplete(true)
+            setGameOver(false) // Ensure game over is false when game is completed
         }
     }, [matchedPairs])
 
     // Check for game over (exceeded turn limit)
     useEffect(() => {
-        if (turns >= TURN_LIMIT && !gameComplete) {
+        if (turns >= TURN_LIMIT && !gameComplete && matchedPairs < cardImages.length) {
             setGameOver(true)
         }
-    }, [turns, gameComplete])
+    }, [turns, gameComplete, matchedPairs])
 
     // Reset choices & turn
     const resetTurn = () => {
