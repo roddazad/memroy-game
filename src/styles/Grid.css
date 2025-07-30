@@ -111,14 +111,14 @@
 /* Mobile Responsive */
 @media (max-width: 480px) {
     .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
         padding: 12px;
         max-width: 100%;
     }
     
     .card {
-        min-height: 90px;
+        min-height: 80px;
         border-radius: 10px;
     }
     
@@ -127,7 +127,7 @@
     }
     
     .front {
-        padding: 10px;
+        padding: 8px;
     }
     
     .cover {
@@ -138,12 +138,12 @@
 /* Small Mobile Responsive */
 @media (max-width: 320px) {
     .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
         padding: 10px;
     }
     
     .card {
-        min-height: 80px;
+        min-height: 70px;
     }
 }
